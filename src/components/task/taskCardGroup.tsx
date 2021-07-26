@@ -32,29 +32,29 @@ const TaskCardGroupComponent = () => {
           ) => (
             <TaskCardGroup key={taskGroupIndex}>
               <TaskCardGroupHeader>{taskGroup.Name}</TaskCardGroupHeader>
-              {taskGroup?.Tasks.map(
-                (
-                  task: TaskClientState,
-                  taskIndex: React.Key | null | undefined
-                ) => (
-                  <>
-                    {!task.EditTask ? (
-                      <TaskCardComponent
-                        key={taskIndex}
-                        taskGroupIndex={taskGroupIndex}
-                        taskIndex={taskIndex}
-                        task={task}
-                      />
-                    ) : (
-                      <EditTask
-                        key={taskIndex}
-                        taskGroupIndex={taskGroupIndex}
-                        taskIndex={taskIndex}
-                      />
-                    )}
-                  </>
-                )
-              )}
+              {taskGroup
+                ? taskGroup?.Tasks.map(
+                    (
+                      task: TaskClientState,
+                      taskIndex: React.Key | null | undefined
+                    ) => (
+                      <div key={taskIndex}>
+                        {!task.EditTask ? (
+                          <TaskCardComponent
+                            taskGroupIndex={taskGroupIndex}
+                            taskIndex={taskIndex}
+                            task={task}
+                          />
+                        ) : (
+                          <EditTask
+                            taskGroupIndex={taskGroupIndex}
+                            taskIndex={taskIndex}
+                          />
+                        )}
+                      </div>
+                    )
+                  )
+                : ''}
               {taskGroup?.CreatedTask ? (
                 <CreateTask
                   taskGroupIndex={taskGroupIndex}
