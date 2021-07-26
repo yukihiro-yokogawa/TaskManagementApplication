@@ -9,6 +9,15 @@ import { TaskState } from '../../types/task';
 import { apiVersion } from '../../utils/api';
 import axiosInstance from '../../utils/axiosInstance';
 
+/**
+ * タスクを登録するためのデータ取得、登録処理等のロジックを担うコンポーネント（Container Component）です.
+ *
+ * @param {({
+ *   index: React.Key | null | undefined;
+ *   taskGroupId: string;
+ * })} props
+ * @return {*}
+ */
 const CreateTask = (props: {
   index: React.Key | null | undefined;
   taskGroupId: string;

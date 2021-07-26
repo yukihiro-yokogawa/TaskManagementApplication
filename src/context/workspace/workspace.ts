@@ -38,13 +38,18 @@ export const WorkspaceContext = createContext<WorkspaceClientState>(
   workspaceInitialState
 );
 
-/** @type {*} */
+/**
+ *
+ *
+ * @type {*}
+ * */
 export const WorkspaceDispatchContext = createContext<
   Dispatch<{
     type: string;
     payload: any;
   }>
 >(() => {});
+
 /**
  * Task関連作成時に使用するstore state関数を変更するaction関数.
  *

@@ -12,6 +12,16 @@ import {
   WorkspaceDispatchContext,
 } from '../../context/workspace/workspace';
 
+/**
+ * タスクカードをタスクグループ内に表示するためのコンポーネント.
+ *
+ * @param {{
+ *   task: TaskState;
+ *   taskGroupIndex: React.Key;
+ *   taskIndex: React.Key;
+ * }} props
+ * @return {*}
+ */
 const TaskCardComponent = (props: {
   task: TaskState;
   taskGroupIndex: React.Key;

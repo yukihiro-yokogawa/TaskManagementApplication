@@ -13,6 +13,12 @@ import { TaskGroupClientState } from '../../types/taskGroup';
 import TaskCardComponent from './taskCard';
 import TaskCardFooterComponent from './taskCardFooter';
 import TaskCardGroupAddComponent from './taskCardGroupAdd';
+
+/**
+ * タスクグループを表示するコンポーネント.
+ *
+ * @return {*}
+ */
 const TaskCardGroupComponent = () => {
   const workspace = useContext(WorkspaceContext);
   return (

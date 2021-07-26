@@ -5,6 +5,14 @@ import {
 } from '../../context/workspace/workspace';
 import { TaskCardFooter, TaskCardFooterText } from '../../styles/taskCard';
 
+/**
+ * タスクを追加するボタンをタスクグループのFooterに追加するためのコンポーネント.
+ *
+ * @param {({
+ *   index: React.Key | null | undefined;
+ * })} props
+ * @return {*}
+ */
 const TaskCardFooterComponent = (props: {
   index: React.Key | null | undefined;
 }) => {
