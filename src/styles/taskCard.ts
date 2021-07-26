@@ -17,6 +17,14 @@ export const TaskCardGroup = styled.div`
   justify-content: flex-start;
   margin: 5px 0px 0px 6px;
   border-radius: 2px;
+  > div {
+    width: 200px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-radius: 2px;
+  }
 `;
 
 export const TaskCardGroupAdd = styled.div`
@@ -41,6 +49,7 @@ export const TaskCardGroupHeader = styled.div`
   font-weight: ${FONT_WEIGHT.BOLD};
   padding: 5px 0px 5px 7px;
 `;
+
 export const TaskCard = styled.div`
   display: flex;
   justify-content: space-between;

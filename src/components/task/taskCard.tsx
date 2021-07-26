@@ -8,10 +8,20 @@ import {
 import { TaskState } from '../../types/task';
 import editPic from '/public/edit.png';
 import {
-  EDIT_TASK,
+  CHANGE_TASK,
   WorkspaceDispatchContext,
 } from '../../context/workspace/workspace';
 
+/**
+ * タスクカードをタスクグループ内に表示するためのコンポーネント.
+ *
+ * @param {{
+ *   task: TaskState;
+ *   taskGroupIndex: React.Key;
+ *   taskIndex: React.Key;
+ * }} props
+ * @return {*}
+ */
 const TaskCardComponent = (props: {
   task: TaskState;
   taskGroupIndex: React.Key;
@@ -30,7 +40,7 @@ const TaskCardComponent = (props: {
         <TaskCardEditImage
           onClick={() =>
             dispatch({
-              type: EDIT_TASK,
+              type: CHANGE_TASK,
               payload: {
                 taskGroupIndex: taskGroupIndex,
                 taskIndex: taskIndex,

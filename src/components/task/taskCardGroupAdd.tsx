@@ -5,6 +5,11 @@ import {
 } from '../../context/workspace/workspace';
 import { TaskCardGroupAdd, TaskCardTitleText } from '../../styles/taskCard';
 
+/**
+ * タスクグループを追加するボタンを表示するコンポーネント.
+ *
+ * @return {*}
+ */
 const TaskCardGroupAddComponent = () => {
   const dispatch = useContext(WorkspaceDispatchContext);
   return (

@@ -4,25 +4,28 @@ import { ButtonPrimary } from '../../styles/button';
 import { CreateTaskCard, CreateTaskTextArea } from '../../styles/taskCard';
 
 /**
- * タスクカードを登録するためのフォームをタスクグループ内に表示するためのコンポーネント.
+ * タスクカードを編集するためのフォームをタスクグループ内に表示するためのコンポーネント.
  *
- * @param {({
- *   index: React.Key | null | undefined;
+ * @param {{
+ *   title: string;
  *   onSubmit: (data: any) => void;
- * })} props
+ * }} props
  * @return {*}
  */
-const CreateTaskComponent = (props: {
-  index: React.Key | null | undefined;
+const EditTaskComponent = (props: {
+  title: string;
   onSubmit: (data: any) => void;
 }) => {
-  const { register, handleSubmit } = useForm();
+  const { title, onSubmit } = props;
+  const { register, handleSubmit } = useForm({
+    defaultValues: { Title: title },
+  });
   return (
-    <CreateTaskCard onSubmit={handleSubmit(props.onSubmit)}>
+    <CreateTaskCard onSubmit={handleSubmit(onSubmit)}>
       <CreateTaskTextArea {...register('Title')} />
       <ButtonPrimary>登録</ButtonPrimary>
     </CreateTaskCard>
   );
 };
 
-export default CreateTaskComponent;
+export default EditTaskComponent;

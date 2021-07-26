@@ -1,5 +1,3 @@
-import { createImportSpecifier } from 'typescript';
-
 /**
  * apiバージョン.
  * @type {*}

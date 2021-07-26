@@ -4,7 +4,6 @@ import Keycloak from 'keycloak-connect';
 import next from 'next';
 import axios from 'axios';
 import { apiVersion } from '../src/utils/api';
-import { KeycloakState } from '../src/types/keycloak';
 import { WorkspaceState } from '../src/types/workspace';
 
 const port = process.env.PORT || 3000;
@@ -78,6 +77,23 @@ app.prepare().then(() => {
       const postUrl = `${url}/${req.params.page}/${req.params.method}`;
       axios
         .post(postUrl, req.body.params.data)
+        .then((response) => {
+          res.send(response.data);
+        })
+        .catch((err) => {
+          console.log(err);
+          res.status(err.statusCode).send(err);
+        });
+    }
+  );
+
+  server.put(
+    `/${apiVersion}/api/:page/:method`,
+    keycloak.protect(),
+    (req, res) => {
+      const putUrl = `${url}/${req.params.page}/${req.params.method}`;
+      axios
+        .put(putUrl, req.body.params.data)
         .then((response) => {
           res.send(response.data);
         })

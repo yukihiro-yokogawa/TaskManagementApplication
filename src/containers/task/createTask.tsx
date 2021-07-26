@@ -9,8 +9,17 @@ import { TaskState } from '../../types/task';
 import { apiVersion } from '../../utils/api';
 import axiosInstance from '../../utils/axiosInstance';
 
+/**
+ * タスクを登録するためのデータ取得、登録処理等のロジックを担うコンポーネント（Container Component）です.
+ *
+ * @param {({
+ *   taskGroupIndex: React.Key | null | undefined; タスクグループの配列番号
+ *   taskGroupId: string; タスクグループのID
+ * })} props
+ * @return {*}
+ */
 const CreateTask = (props: {
-  index: React.Key | null | undefined;
+  taskGroupIndex: React.Key | null | undefined;
   taskGroupId: string;
 }) => {
   const keycloak = useContext(KeycloakContext);
@@ -23,7 +32,7 @@ const CreateTask = (props: {
         TaskId: '',
       },
     ];
-    task.TaskGroupId = String(props.taskGroupId);
+    task.TaskGroupId = props.taskGroupId;
     axiosInstance
       .post(`/${apiVersion}/api/task/post`, {
         params: { data: task },
@@ -31,11 +40,13 @@ const CreateTask = (props: {
       .then((res) => {
         dispatch({
           type: PUSH_TASK,
-          payload: { taskGroupIndex: props.index, task: res.data },
+          payload: { taskGroupIndex: props.taskGroupIndex, task: res.data },
         });
       });
   };
-  return <CreateTaskComponent index={props.index} onSubmit={handleSubmit} />;
+  return (
+    <CreateTaskComponent index={props.taskGroupIndex} onSubmit={handleSubmit} />
+  );
 };
 
 export default CreateTask;
