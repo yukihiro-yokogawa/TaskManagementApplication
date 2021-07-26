@@ -102,7 +102,7 @@ export const WorkspaceReducer = (
         ...state,
       };
     }
-    case EDIT_TASK: {
+    case CHANGE_TASK: {
       _.forEach(
         state.TaskGroups[Number(action.payload.taskGroupIndex)].Tasks,
         (task) => {
@@ -112,6 +112,12 @@ export const WorkspaceReducer = (
       state.TaskGroups[Number(action.payload.taskGroupIndex)].Tasks[
         Number(action.payload.taskIndex)
       ].EditTask = true;
+      return { ...state };
+    }
+    case EDIT_TASK: {
+      state.TaskGroups[Number(action.payload.taskGroupIndex)].Tasks[
+        Number(action.payload.taskIndex)
+      ].EditTask = false;
       return { ...state };
     }
     default: {
@@ -126,4 +132,5 @@ export const CREATE_TASK_GROUP = 'CREATE_TASK_GROUP';
 export const PUSH_TASK_GROUP = 'PUSH_TASK_GROUP';
 export const CREATE_TASK = 'CREATE_TASK';
 export const PUSH_TASK = 'PUSH_TASK';
+export const CHANGE_TASK = 'CHANGE_TASK';
 export const EDIT_TASK = 'EDIT_TASK';

@@ -4,6 +4,7 @@ import { KeycloakContext } from '../../context/keycloak';
 import {
   WorkspaceDispatchContext,
   PUSH_TASK,
+  EDIT_TASK,
 } from '../../context/workspace/workspace';
 import { TaskState } from '../../types/task';
 import { apiVersion } from '../../utils/api';

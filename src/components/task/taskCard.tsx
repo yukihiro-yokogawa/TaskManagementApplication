@@ -8,7 +8,7 @@ import {
 import { TaskState } from '../../types/task';
 import editPic from '/public/edit.png';
 import {
-  EDIT_TASK,
+  CHANGE_TASK,
   WorkspaceDispatchContext,
 } from '../../context/workspace/workspace';
 
@@ -40,7 +40,7 @@ const TaskCardComponent = (props: {
         <TaskCardEditImage
           onClick={() =>
             dispatch({
-              type: EDIT_TASK,
+              type: CHANGE_TASK,
               payload: {
                 taskGroupIndex: taskGroupIndex,
                 taskIndex: taskIndex,
