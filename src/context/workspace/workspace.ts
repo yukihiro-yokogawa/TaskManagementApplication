@@ -5,6 +5,7 @@ import {
   WorkspaceState,
 } from '../../types/workspace';
 import _ from 'lodash';
+import { taskGroupInitialState } from '../../types/taskGroup';
 /**
  * Workspaceの一覧を保管するContext関数.
  * @type {*} */
@@ -84,7 +85,7 @@ export const WorkspaceReducer = (
     }
     case PUSH_TASK_GROUP: {
       state.CreatedTaskGroup = false;
-      state.TaskGroup.push(action.payload.task);
+      state.TaskGroup.push(taskGroupInitialState);
       return { ...state };
     }
     case CREATE_TASK: {
