@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import CreateTask from '../../containers/task/createTask';
+import EditTask from '../../containers/task/editTask';
 import { WorkspaceContext } from '../../context/workspace/workspace';
 import {
   TaskCard,
@@ -45,7 +46,7 @@ const TaskCardGroupComponent = () => {
                         task={task}
                       />
                     ) : (
-                      'test'
+                      <EditTask />
                     )}
                   </>
                 )
