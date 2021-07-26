@@ -4,7 +4,6 @@ import Keycloak from 'keycloak-connect';
 import next from 'next';
 import axios from 'axios';
 import { apiVersion } from '../src/utils/api';
-import { KeycloakState } from '../src/types/keycloak';
 import { WorkspaceState } from '../src/types/workspace';
 
 const port = process.env.PORT || 3000;
