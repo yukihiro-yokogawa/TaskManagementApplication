@@ -32,7 +32,7 @@ const CreateTask = (props: {
         TaskId: '',
       },
     ];
-    task.TaskGroupId = String(props.taskGroupId);
+    task.TaskGroupId = props.taskGroupId;
     axiosInstance
       .post(`/${apiVersion}/api/task/post`, {
         params: { data: task },

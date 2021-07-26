@@ -87,6 +87,23 @@ app.prepare().then(() => {
     }
   );
 
+  server.put(
+    `/${apiVersion}/api/:page/:method`,
+    keycloak.protect(),
+    (req, res) => {
+      const putUrl = `${url}/${req.params.page}/${req.params.method}`;
+      axios
+        .put(putUrl, req.body.params.data)
+        .then((response) => {
+          res.send(response.data);
+        })
+        .catch((err) => {
+          console.log(err);
+          res.status(err.statusCode).send(err);
+        });
+    }
+  );
+
   server.all('*', (req, res) => {
     return handle(req, res);
   });

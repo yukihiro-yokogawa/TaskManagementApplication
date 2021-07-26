@@ -22,7 +22,7 @@ const EditTask = (props: {
   const handleSubmit = (task: TaskState) => {
     editTask.Title = task.Title;
     axiosInstance
-      .post(`/${apiVersion}/api/task/post`, {
+      .put(`/${apiVersion}/api/task/put`, {
         params: { data: editTask },
       })
       .then((res) => {
