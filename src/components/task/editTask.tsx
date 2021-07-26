@@ -3,6 +3,15 @@ import { useForm } from 'react-hook-form';
 import { ButtonPrimary } from '../../styles/button';
 import { CreateTaskCard, CreateTaskTextArea } from '../../styles/taskCard';
 
+/**
+ * タスクカードを編集するためのフォームをタスクグループ内に表示するためのコンポーネント.
+ *
+ * @param {{
+ *   title: string;
+ *   onSubmit: (data: any) => void;
+ * }} props
+ * @return {*}
+ */
 const EditTaskComponent = (props: {
   title: string;
   onSubmit: (data: any) => void;

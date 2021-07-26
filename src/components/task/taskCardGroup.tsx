@@ -57,7 +57,7 @@ const TaskCardGroupComponent = () => {
               )}
               {taskGroup?.CreatedTask ? (
                 <CreateTask
-                  index={taskGroupIndex}
+                  taskGroupIndex={taskGroupIndex}
                   taskGroupId={taskGroup.TaskGroupId}
                 />
               ) : (
