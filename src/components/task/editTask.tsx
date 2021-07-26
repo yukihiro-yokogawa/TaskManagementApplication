@@ -4,12 +4,15 @@ import { ButtonPrimary } from '../../styles/button';
 import { CreateTaskCard, CreateTaskTextArea } from '../../styles/taskCard';
 
 const EditTaskComponent = (props: {
-  index: React.Key | null | undefined;
+  title: string;
   onSubmit: (data: any) => void;
 }) => {
-  const { register, handleSubmit } = useForm();
+  const { title, onSubmit } = props;
+  const { register, handleSubmit } = useForm({
+    defaultValues: { Title: title },
+  });
   return (
-    <CreateTaskCard onSubmit={handleSubmit(props.onSubmit)}>
+    <CreateTaskCard onSubmit={handleSubmit(onSubmit)}>
       <CreateTaskTextArea {...register('Title')} />
       <ButtonPrimary>登録</ButtonPrimary>
     </CreateTaskCard>
