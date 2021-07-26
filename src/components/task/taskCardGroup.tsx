@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import CreateTask from '../../containers/task/createTask';
+import CreateTaskGroup from '../../containers/task/createTaskGroup';
 import EditTask from '../../containers/task/editTask';
 import { WorkspaceContext } from '../../context/workspace/workspace';
 import {
@@ -67,12 +68,7 @@ const TaskCardGroupComponent = () => {
           )
         )}
         {workspace?.CreatedTaskGroup ? (
-          <TaskCardGroup>
-            <TaskCardGroupHeader>test</TaskCardGroupHeader>
-            <TaskCard>
-              <TaskCardTitleText>テスト test</TaskCardTitleText>
-            </TaskCard>
-          </TaskCardGroup>
+          <CreateTaskGroup />
         ) : (
           <TaskCardGroupAddComponent />
         )}
