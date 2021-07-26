@@ -36,7 +36,7 @@ const EditTask = (props: {
       });
   };
 
-  return <EditTaskComponent />;
+  return <EditTaskComponent index={props.index} onSubmit={handleSubmit} />;
 };
 
 export default EditTask;
