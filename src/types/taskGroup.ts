@@ -8,6 +8,7 @@ export type TaskGroupState = {
   CreatedDate: string;
   UpdatedDate: string;
   Tasks: Array<TaskClientState>;
+  WorkspaceId: string;
 };
 
 export type TaskGroupClientState = TaskGroupState & {
@@ -22,6 +23,7 @@ export const taskGroupInitialState: TaskGroupClientState = {
   CreatedDate: '',
   UpdatedDate: '',
   CreatedTask: false,
+  WorkspaceId: '',
   Tasks: [
     {
       TaskId: '',
