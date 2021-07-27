@@ -34,13 +34,12 @@ const EditTask = (props: {
       .put(`/${apiVersion}/api/task/put`, {
         params: { data: editTask },
       })
-      .then((res) => {
+      .then(() => {
         dispatch({
           type: EDIT_TASK,
           payload: {
             taskGroupIndex: taskGroupIndex,
             taskIndex: taskIndex,
-            task: res.data,
           },
         });
       });

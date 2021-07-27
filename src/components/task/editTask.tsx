@@ -7,8 +7,8 @@ import { CreateTaskCard, CreateTaskTextArea } from '../../styles/taskCard';
  * タスクカードを編集するためのフォームをタスクグループ内に表示するためのコンポーネント.
  *
  * @param {{
- *   title: string;
- *   onSubmit: (data: any) => void;
+ *   title: string; タスクカードのタイトル
+ *   onSubmit: (data: any) => void; フォーム送信を許可する際のロジック
  * }} props
  * @return {*}
  */

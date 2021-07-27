@@ -2,15 +2,18 @@ import React, { useContext } from 'react';
 import CreateTask from '../../containers/task/createTask';
 import CreateTaskGroup from '../../containers/task/createTaskGroup';
 import EditTask from '../../containers/task/editTask';
-import { WorkspaceContext } from '../../context/workspace/workspace';
+import EditTaskGroup from '../../containers/task/editTaskGroup';
 import {
-  TaskCard,
+  CHANGE_TASK_GROUP,
+  WorkspaceContext,
+  WorkspaceDispatchContext,
+} from '../../context/workspace/workspace';
+import {
   TaskCardGroup,
   TaskCardGroupHeader,
-  TaskCardTitleText,
   TaskGroups,
 } from '../../styles/taskCard';
-import { TaskClientState, TaskState } from '../../types/task';
+import { TaskClientState } from '../../types/task';
 import { TaskGroupClientState } from '../../types/taskGroup';
 import TaskCardComponent from './taskCard';
 import TaskCardFooterComponent from './taskCardFooter';
@@ -23,6 +26,7 @@ import TaskCardGroupAddComponent from './taskCardGroupAdd';
  */
 const TaskCardGroupComponent = () => {
   const workspace = useContext(WorkspaceContext);
+  const dispatch = useContext(WorkspaceDispatchContext);
   return (
     <>
       <TaskGroups>
@@ -32,7 +36,19 @@ const TaskCardGroupComponent = () => {
             taskGroupIndex: React.Key | null | undefined
           ) => (
             <TaskCardGroup key={taskGroupIndex}>
-              <TaskCardGroupHeader>{taskGroup.Name}</TaskCardGroupHeader>
+              {!taskGroup.EditTaskGroup ? (
+                <TaskCardGroupHeader
+                  onClick={() =>
+                    dispatch({
+                      type: CHANGE_TASK_GROUP,
+                      payload: { taskGroupIndex: taskGroupIndex },
+                    })
+                  }>
+                  {taskGroup.Name}
+                </TaskCardGroupHeader>
+              ) : (
+                <EditTaskGroup taskGroupIndex={taskGroupIndex} />
+              )}
               {taskGroup
                 ? taskGroup?.Tasks?.map(
                     (

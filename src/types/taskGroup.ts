@@ -13,6 +13,7 @@ export type TaskGroupState = {
 
 export type TaskGroupClientState = TaskGroupState & {
   CreatedTask: boolean;
+  EditTaskGroup: boolean;
 };
 
 export const taskGroupInitialState: TaskGroupClientState = {
@@ -22,8 +23,9 @@ export const taskGroupInitialState: TaskGroupClientState = {
   Deleted: false,
   CreatedDate: '',
   UpdatedDate: '',
-  CreatedTask: false,
   WorkspaceId: 0,
+  CreatedTask: false,
+  EditTaskGroup: false,
   Tasks: [
     {
       TaskId: '',
