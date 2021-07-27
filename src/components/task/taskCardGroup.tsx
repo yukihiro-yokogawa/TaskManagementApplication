@@ -34,7 +34,7 @@ const TaskCardGroupComponent = () => {
             <TaskCardGroup key={taskGroupIndex}>
               <TaskCardGroupHeader>{taskGroup.Name}</TaskCardGroupHeader>
               {taskGroup
-                ? taskGroup?.Tasks.map(
+                ? taskGroup?.Tasks?.map(
                     (
                       task: TaskClientState,
                       taskIndex: React.Key | null | undefined

@@ -86,7 +86,7 @@ export const WorkspaceReducer = (
     }
     case PUSH_TASK_GROUP: {
       state.CreatedTaskGroup = false;
-      state.TaskGroup.push(action.payload.taskGroup);
+      state.TaskGroups.push(action.payload.taskGroup);
       return { ...state };
     }
     case CANCEL_CREATE_TASK_GROUP: {

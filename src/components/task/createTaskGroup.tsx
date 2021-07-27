@@ -17,7 +17,7 @@ const CreateTaskGroupComponent = (props: { onSubmit: (data: any) => void }) => {
   const dispatch = useContext(WorkspaceDispatchContext);
   return (
     <CreateTaskGroup onSubmit={handleSubmit(props.onSubmit)}>
-      <CreateTaskGroupTextArea {...register('Title')} />
+      <CreateTaskGroupTextArea {...register('Name')} />
       <TaskGroupFooter>
         <ButtonPrimary>登録</ButtonPrimary>
         <CloseButton
