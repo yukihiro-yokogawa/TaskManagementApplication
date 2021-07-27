@@ -9,6 +9,11 @@ import { TaskGroupState } from '../../types/taskGroup';
 import { apiVersion } from '../../utils/api';
 import axiosInstance from '../../utils/axiosInstance';
 
+/**
+ * タスクグループを登録するためのデータ取得、登録処理等のロジックを担うコンポーネント（Container Component）です.
+ *
+ * @return {*}
+ */
 const CreateTaskGroup = () => {
   const workspace = useContext(WorkspaceContext);
   const dispatch = useContext(WorkspaceDispatchContext);

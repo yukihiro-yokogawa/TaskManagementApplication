@@ -12,6 +12,12 @@ import {
   TaskGroupFooter,
 } from '../../styles/taskCard';
 
+/**
+ * タスクグループを登録するためのフォームをタスクグループ内に表示するためのコンポーネント.
+ *
+ * @param {{ onSubmit: (data: any) => void }} props
+ * @return {*}
+ */
 const CreateTaskGroupComponent = (props: { onSubmit: (data: any) => void }) => {
   const { register, handleSubmit } = useForm();
   const dispatch = useContext(WorkspaceDispatchContext);

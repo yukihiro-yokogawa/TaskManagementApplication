@@ -12,7 +12,7 @@ import { taskGroupInitialState } from '../../types/taskGroup';
 export const WorkspacesContext = createContext<Array<any>>([]);
 
 /**
- * WorkspaceContextを書き換えるためのReducer関数.
+ * WorkspacesContextを書き換えるためのReducer関数.
  *
  * @param {Array<any>} state
  * @param {{ type: string; payload: WorkspaceState }} action
@@ -40,7 +40,7 @@ export const WorkspaceContext = createContext<WorkspaceClientState>(
 );
 
 /**
- *
+ * WorkspaceContextを書き換えるためのReducer関数.
  *
  * @type {*}
  * */
