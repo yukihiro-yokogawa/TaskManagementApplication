@@ -1,57 +1,53 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import {
-  EDIT_TASK,
+  EDIT_TASK_GROUP,
   WorkspaceDispatchContext,
 } from '../../context/workspace/workspace';
 import { ButtonPrimary, CloseButton } from '../../styles/button';
 import {
+  EditTaskGroup,
+  EditTaskGroupTextArea,
   TaskGroupFooter,
-  CreateTaskCard,
-  CreateTaskTextArea,
 } from '../../styles/taskCard';
 
 /**
- * タスクカードを編集するためのフォームをタスクグループ内に表示するためのコンポーネント.
+ * タスクグループを編集するためのフォームをタスクグループ内に表示するためのコンポーネント
  *
- * @param {{
- *   title: string; タスクカードのタイトル
+ * @param {({
+ *   name: string; タスクグループのタイトル
+ *   taskGroupIndex: React.Key | null | undefined; タスクグループの配列番号
  *   onSubmit: (data: any) => void; フォーム送信を許可する際のロジック
- * }} props
+ * })} props
  * @return {*}
  */
-const EditTaskComponent = (props: {
-  title: string;
+const EditTaskGroupComponent = (props: {
+  name: string;
   taskGroupIndex: React.Key | null | undefined;
-  taskIndex: React.Key | null | undefined;
   onSubmit: (data: any) => void;
 }) => {
-  const { title, onSubmit } = props;
   const { register, handleSubmit } = useForm({
-    defaultValues: { Title: title },
+    defaultValues: { Name: props.name },
   });
   const dispatch = useContext(WorkspaceDispatchContext);
   return (
-    <CreateTaskCard onSubmit={handleSubmit(onSubmit)}>
-      <CreateTaskTextArea {...register('Title')} />
+    <EditTaskGroup onSubmit={handleSubmit(props.onSubmit)}>
+      <EditTaskGroupTextArea {...register('Name')} />
       <TaskGroupFooter>
         <ButtonPrimary>登録</ButtonPrimary>
         <CloseButton
           type="button"
           onClick={() =>
             dispatch({
-              type: EDIT_TASK,
-              payload: {
-                taskGroupIndex: props.taskGroupIndex,
-                taskIndex: props.taskIndex,
-              },
+              type: EDIT_TASK_GROUP,
+              payload: { taskGroupIndex: props.taskGroupIndex },
             })
           }>
           ×
         </CloseButton>
       </TaskGroupFooter>
-    </CreateTaskCard>
+    </EditTaskGroup>
   );
 };
 
-export default EditTaskComponent;
+export default EditTaskGroupComponent;

@@ -45,7 +45,10 @@ const CreateTask = (props: {
       });
   };
   return (
-    <CreateTaskComponent index={props.taskGroupIndex} onSubmit={handleSubmit} />
+    <CreateTaskComponent
+      taskGroupIndex={props.taskGroupIndex}
+      onSubmit={handleSubmit}
+    />
   );
 };
 

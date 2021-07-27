@@ -34,19 +34,25 @@ const EditTask = (props: {
       .put(`/${apiVersion}/api/task/put`, {
         params: { data: editTask },
       })
-      .then((res) => {
+      .then(() => {
         dispatch({
           type: EDIT_TASK,
           payload: {
             taskGroupIndex: taskGroupIndex,
             taskIndex: taskIndex,
-            task: res.data,
           },
         });
       });
   };
 
-  return <EditTaskComponent title={editTask.Title} onSubmit={handleSubmit} />;
+  return (
+    <EditTaskComponent
+      title={editTask.Title}
+      taskGroupIndex={taskGroupIndex}
+      taskIndex={taskIndex}
+      onSubmit={handleSubmit}
+    />
+  );
 };
 
 export default EditTask;

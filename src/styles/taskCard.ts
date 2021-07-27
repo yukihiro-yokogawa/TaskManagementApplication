@@ -4,6 +4,7 @@ import { COLOR, FONT, FONT_WEIGHT } from './utils/cssConstrain';
 export const TaskGroups = styled.div`
   display: flex;
   justify-content: flex-start;
+  align-items: baseline;
 `;
 
 export const TaskCardGroup = styled.div`
@@ -27,10 +28,16 @@ export const TaskCardGroup = styled.div`
   }
 `;
 
+export const TaskGroupFooter = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const TaskCardGroupAdd = styled.div`
   width: 200px;
   position: relative;
-  height: 24px;
+  height: 30px;
   border-radius: 2px;
   overflow: hidden;
   cursor: pointer;
@@ -48,6 +55,7 @@ export const TaskCardGroupHeader = styled.div`
   font-size: ${FONT.MEDIUM}px;
   font-weight: ${FONT_WEIGHT.BOLD};
   padding: 5px 0px 5px 7px;
+  cursor: pointer;
 `;
 
 export const TaskCard = styled.div`
@@ -100,7 +108,6 @@ export const TaskCardTextbox = styled.div`
 export const TaskCardFooter = styled.div`
   position: relative;
   width: 100%;
-  height: auto;
   border-radius: 2px;
   overflow: hidden;
   cursor: pointer;
@@ -111,8 +118,44 @@ export const TaskCardFooter = styled.div`
     color: #fff;
   }
 `;
+
 export const TaskCardFooterText = styled(TaskCardTitleText)`
   color: #696969;
+`;
+
+export const CreateTaskGroup = styled.form`
+  width: 200px;
+  background-color: #f2f2f2;
+  padding: 0px 5px 0px 5px;
+  justify-content: flex-start;
+  margin: 5px 0px 5px 6px;
+  border-radius: 2px;
+`;
+
+export const CreateTaskGroupTextArea = styled.textarea`
+  resize: none;
+  margin-top: 5px;
+  width: 195px;
+  border: 2px ${COLOR.PRIMARY} solid;
+  outline: 2px ${COLOR.PRIMARY};
+  border-radius: 3px;
+`;
+
+export const EditTaskGroup = styled.form`
+  width: 200px;
+  background-color: #f2f2f2;
+  justify-content: flex-start;
+  margin: 3px 0px 6px 0px;
+  border-radius: 2px;
+`;
+
+export const EditTaskGroupTextArea = styled.input`
+  width: 190px;
+  height: 20px;
+  border: 2px ${COLOR.PRIMARY} solid;
+  outline: 2px ${COLOR.PRIMARY};
+  border-radius: 3px;
+  margin-bottom: 6px;
 `;
 
 export const CreateTaskCard = styled.form`
@@ -125,7 +168,9 @@ export const CreateTaskCard = styled.form`
 
 export const CreateTaskTextArea = styled.textarea`
   resize: none;
-  width: 100%;
-  border: none;
-  outline: none;
+  width: 190px;
+  height: 70px;
+  border: 2px ${COLOR.PRIMARY} solid;
+  outline: 2px ${COLOR.PRIMARY};
+  border-radius: 3px;
 `;

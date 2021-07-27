@@ -6,7 +6,7 @@ import {
 import { UserState } from './user';
 
 export type WorkspaceState = {
-  WorkspaceId: string;
+  WorkspaceId: number;
   Title: string;
   Description: string;
   CreateUserId: string;
@@ -27,7 +27,7 @@ export type WorkspaceClientState = WorkspaceState & {
 };
 
 export const workspaceInitialState: WorkspaceClientState = {
-  WorkspaceId: '',
+  WorkspaceId: 0,
   Title: '',
   Description: '',
   CreateUserId: '',

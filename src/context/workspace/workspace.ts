@@ -5,13 +5,14 @@ import {
   WorkspaceState,
 } from '../../types/workspace';
 import _ from 'lodash';
+import { taskGroupInitialState } from '../../types/taskGroup';
 /**
  * Workspaceの一覧を保管するContext関数.
  * @type {*} */
 export const WorkspacesContext = createContext<Array<any>>([]);
 
 /**
- * WorkspaceContextを書き換えるためのReducer関数.
+ * WorkspacesContextを書き換えるためのReducer関数.
  *
  * @param {Array<any>} state
  * @param {{ type: string; payload: WorkspaceState }} action
@@ -39,7 +40,7 @@ export const WorkspaceContext = createContext<WorkspaceClientState>(
 );
 
 /**
- *
+ * WorkspaceContextを書き換えるためのReducer関数.
  *
  * @type {*}
  * */
@@ -72,6 +73,7 @@ export const WorkspaceReducer = (
       taskGroupIndex: React.Key | null | undefined;
       taskIndex: React.Key | null | undefined;
       task: any;
+      taskGroup: any;
     };
   }
 ) => {
@@ -84,12 +86,33 @@ export const WorkspaceReducer = (
     }
     case PUSH_TASK_GROUP: {
       state.CreatedTaskGroup = false;
-      state.TaskGroup.push(action.payload.task);
+      state.TaskGroups.push(action.payload.taskGroup);
       return { ...state };
+    }
+    case CHANGE_TASK_GROUP: {
+      _.forEach(state.TaskGroups, (taskGroup) => {
+        taskGroup.EditTaskGroup = false;
+      });
+      state.TaskGroups[Number(action.payload.taskGroupIndex)].EditTaskGroup =
+        true;
+      return { ...state };
+    }
+    case EDIT_TASK_GROUP: {
+      state.TaskGroups[Number(action.payload.taskGroupIndex)].EditTaskGroup =
+        false;
+      return { ...state };
+    }
+    case CANCEL_CREATE_TASK_GROUP: {
+      return { ...state, CreatedTaskGroup: false };
     }
     case CREATE_TASK: {
       state.TaskGroups[Number(action.payload.taskGroupIndex)].CreatedTask =
         true;
+      return { ...state };
+    }
+    case CANCEL_CREATE_TASK: {
+      state.TaskGroups[Number(action.payload.taskGroupIndex)].CreatedTask =
+        false;
       return { ...state };
     }
     case PUSH_TASK: {
@@ -130,7 +153,11 @@ export const LOAD_TASK = 'LOAD_TASK';
 export const REGISTER_WORKSPACE = 'REGISTER_WORKSPACE';
 export const CREATE_TASK_GROUP = 'CREATE_TASK_GROUP';
 export const PUSH_TASK_GROUP = 'PUSH_TASK_GROUP';
+export const CHANGE_TASK_GROUP = 'CHANGE_TASK_GROUP';
+export const EDIT_TASK_GROUP = 'EDIT_TASK_GROUP';
+export const CANCEL_CREATE_TASK_GROUP = 'CANCEL_CREATE_TASK_GROUP';
 export const CREATE_TASK = 'CREATE_TASK';
+export const CANCEL_CREATE_TASK = 'CANCEL_CREATE_TASK';
 export const PUSH_TASK = 'PUSH_TASK';
 export const CHANGE_TASK = 'CHANGE_TASK';
 export const EDIT_TASK = 'EDIT_TASK';
