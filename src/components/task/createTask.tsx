@@ -27,7 +27,7 @@ const CreateTaskComponent = (props: {
   const { register, handleSubmit } = useForm();
   const dispatch = useContext(WorkspaceDispatchContext);
   return (
-    <CreateTaskCard onSubmit={handleSubmit(props.onSubmit)}>
+    <CreateTaskCard onSubmit={handleSubmit(props.onSubmit)} zIndex={'0'}>
       <CreateTaskTextArea {...register('Title')} />
       <TaskGroupFooter>
         <ButtonPrimary>登録</ButtonPrimary>

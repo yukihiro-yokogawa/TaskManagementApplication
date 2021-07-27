@@ -158,11 +158,12 @@ export const EditTaskGroupTextArea = styled.input`
   margin-bottom: 6px;
 `;
 
-export const CreateTaskCard = styled.form`
+export const CreateTaskCard = styled.form<{ zIndex: string }>`
   width: 100%;
   border-radius: 2px;
   overflow: hidden;
   background-color: #f2f2f2;
+  z-index: ${(props) => (props.zIndex ? props.zIndex : '0')};
   margin-bottom: 5px;
 `;
 
@@ -173,4 +174,34 @@ export const CreateTaskTextArea = styled.textarea`
   border: 2px ${COLOR.PRIMARY} solid;
   outline: 2px ${COLOR.PRIMARY};
   border-radius: 3px;
+`;
+
+export const EditTaskSideBar = styled.div`
+  position: absolute;
+  width: 150px;
+  color: ${COLOR.WHITE};
+  margin-left: 215px;
+`;
+
+export const EditTaskSideBarContent = styled.div`
+  width: 145px;
+  border-radius: 3px;
+  background-color: #292929;
+  padding-left: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  &:hover {
+    margin-left: 5px;
+  }
+`;
+
+export const TaskOverlay = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: #000;
+  z-index: -1;
+  opacity: 0.5;
 `;

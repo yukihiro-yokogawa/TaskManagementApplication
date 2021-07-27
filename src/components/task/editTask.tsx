@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import EditTaskSideBar from '../../containers/task/editTaskSideBar';
 import {
   EDIT_TASK,
   WorkspaceDispatchContext,
@@ -9,6 +10,7 @@ import {
   TaskGroupFooter,
   CreateTaskCard,
   CreateTaskTextArea,
+  TaskOverlay,
 } from '../../styles/taskCard';
 
 /**
@@ -26,13 +28,25 @@ const EditTaskComponent = (props: {
   taskIndex: React.Key | null | undefined;
   onSubmit: (data: any) => void;
 }) => {
-  const { title, onSubmit } = props;
+  const { title, taskGroupIndex, taskIndex, onSubmit } = props;
   const { register, handleSubmit } = useForm({
     defaultValues: { Title: title },
   });
   const dispatch = useContext(WorkspaceDispatchContext);
   return (
-    <CreateTaskCard onSubmit={handleSubmit(onSubmit)}>
+    <CreateTaskCard onSubmit={handleSubmit(onSubmit)} zIndex={'10'}>
+      <TaskOverlay
+        onClick={() =>
+          dispatch({
+            type: EDIT_TASK,
+            payload: {
+              taskGroupIndex: taskGroupIndex,
+              taskIndex: taskIndex,
+            },
+          })
+        }
+      />
+      <EditTaskSideBar />
       <CreateTaskTextArea {...register('Title')} />
       <TaskGroupFooter>
         <ButtonPrimary>登録</ButtonPrimary>
@@ -42,8 +56,8 @@ const EditTaskComponent = (props: {
             dispatch({
               type: EDIT_TASK,
               payload: {
-                taskGroupIndex: props.taskGroupIndex,
-                taskIndex: props.taskIndex,
+                taskGroupIndex: taskGroupIndex,
+                taskIndex: taskIndex,
               },
             })
           }>
