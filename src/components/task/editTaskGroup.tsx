@@ -6,8 +6,8 @@ import {
 } from '../../context/workspace/workspace';
 import { ButtonPrimary, CloseButton } from '../../styles/button';
 import {
-  CreateTaskGroup,
-  CreateTaskGroupTextArea,
+  EditTaskGroup,
+  EditTaskGroupTextArea,
   TaskGroupFooter,
 } from '../../styles/taskCard';
 
@@ -31,8 +31,8 @@ const EditTaskGroupComponent = (props: {
   });
   const dispatch = useContext(WorkspaceDispatchContext);
   return (
-    <CreateTaskGroup onSubmit={handleSubmit(props.onSubmit)}>
-      <CreateTaskGroupTextArea {...register('Name')} />
+    <EditTaskGroup onSubmit={handleSubmit(props.onSubmit)}>
+      <EditTaskGroupTextArea {...register('Name')} />
       <TaskGroupFooter>
         <ButtonPrimary>登録</ButtonPrimary>
         <CloseButton
@@ -46,7 +46,7 @@ const EditTaskGroupComponent = (props: {
           ×
         </CloseButton>
       </TaskGroupFooter>
-    </CreateTaskGroup>
+    </EditTaskGroup>
   );
 };
 

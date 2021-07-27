@@ -118,6 +118,7 @@ export const TaskCardFooter = styled.div`
     color: #fff;
   }
 `;
+
 export const TaskCardFooterText = styled(TaskCardTitleText)`
   color: #696969;
 `;
@@ -127,7 +128,7 @@ export const CreateTaskGroup = styled.form`
   background-color: #f2f2f2;
   padding: 0px 5px 0px 5px;
   justify-content: flex-start;
-  margin: 5px 0px 0px 6px;
+  margin: 5px 0px 5px 6px;
   border-radius: 2px;
 `;
 
@@ -138,6 +139,23 @@ export const CreateTaskGroupTextArea = styled.textarea`
   border: 2px ${COLOR.PRIMARY} solid;
   outline: 2px ${COLOR.PRIMARY};
   border-radius: 3px;
+`;
+
+export const EditTaskGroup = styled.form`
+  width: 200px;
+  background-color: #f2f2f2;
+  justify-content: flex-start;
+  margin: 3px 0px 6px 0px;
+  border-radius: 2px;
+`;
+
+export const EditTaskGroupTextArea = styled.input`
+  width: 190px;
+  height: 20px;
+  border: 2px ${COLOR.PRIMARY} solid;
+  outline: 2px ${COLOR.PRIMARY};
+  border-radius: 3px;
+  margin-bottom: 6px;
 `;
 
 export const CreateTaskCard = styled.form`
