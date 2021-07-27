@@ -45,7 +45,14 @@ const EditTask = (props: {
       });
   };
 
-  return <EditTaskComponent title={editTask.Title} onSubmit={handleSubmit} />;
+  return (
+    <EditTaskComponent
+      title={editTask.Title}
+      taskGroupIndex={taskGroupIndex}
+      taskIndex={taskIndex}
+      onSubmit={handleSubmit}
+    />
+  );
 };
 
 export default EditTask;

@@ -110,6 +110,11 @@ export const WorkspaceReducer = (
         true;
       return { ...state };
     }
+    case CANCEL_CREATE_TASK: {
+      state.TaskGroups[Number(action.payload.taskGroupIndex)].CreatedTask =
+        false;
+      return { ...state };
+    }
     case PUSH_TASK: {
       state.TaskGroups[Number(action.payload.taskGroupIndex)].CreatedTask =
         false;
@@ -152,6 +157,7 @@ export const CHANGE_TASK_GROUP = 'CHANGE_TASK_GROUP';
 export const EDIT_TASK_GROUP = 'EDIT_TASK_GROUP';
 export const CANCEL_CREATE_TASK_GROUP = 'CANCEL_CREATE_TASK_GROUP';
 export const CREATE_TASK = 'CREATE_TASK';
+export const CANCEL_CREATE_TASK = 'CANCEL_CREATE_TASK';
 export const PUSH_TASK = 'PUSH_TASK';
 export const CHANGE_TASK = 'CHANGE_TASK';
 export const EDIT_TASK = 'EDIT_TASK';

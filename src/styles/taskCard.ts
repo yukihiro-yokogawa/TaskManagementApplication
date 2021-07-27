@@ -151,6 +151,7 @@ export const CreateTaskCard = styled.form`
 export const CreateTaskTextArea = styled.textarea`
   resize: none;
   width: 190px;
+  height: 70px;
   border: 2px ${COLOR.PRIMARY} solid;
   outline: 2px ${COLOR.PRIMARY};
   border-radius: 3px;

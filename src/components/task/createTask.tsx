@@ -1,26 +1,49 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { ButtonPrimary } from '../../styles/button';
-import { CreateTaskCard, CreateTaskTextArea } from '../../styles/taskCard';
+import {
+  CANCEL_CREATE_TASK,
+  WorkspaceDispatchContext,
+} from '../../context/workspace/workspace';
+import { ButtonPrimary, CloseButton } from '../../styles/button';
+import {
+  TaskGroupFooter,
+  CreateTaskCard,
+  CreateTaskTextArea,
+} from '../../styles/taskCard';
 
 /**
  * タスクカードを登録するためのフォームをタスクグループ内に表示するためのコンポーネント.
  *
  * @param {({
- *   index: React.Key | null | undefined;
+ *   taskGroupIndex: React.Key | null | undefined;
  *   onSubmit: (data: any) => void;
  * })} props
  * @return {*}
  */
 const CreateTaskComponent = (props: {
-  index: React.Key | null | undefined;
+  taskGroupIndex: React.Key | null | undefined;
   onSubmit: (data: any) => void;
 }) => {
   const { register, handleSubmit } = useForm();
+  const dispatch = useContext(WorkspaceDispatchContext);
   return (
     <CreateTaskCard onSubmit={handleSubmit(props.onSubmit)}>
       <CreateTaskTextArea {...register('Title')} />
-      <ButtonPrimary>登録</ButtonPrimary>
+      <TaskGroupFooter>
+        <ButtonPrimary>登録</ButtonPrimary>
+        <CloseButton
+          type="button"
+          onClick={() =>
+            dispatch({
+              type: CANCEL_CREATE_TASK,
+              payload: {
+                taskGroupIndex: props.taskGroupIndex,
+              },
+            })
+          }>
+          ×
+        </CloseButton>
+      </TaskGroupFooter>
     </CreateTaskCard>
   );
 };
