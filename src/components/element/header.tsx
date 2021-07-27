@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
-import { ButtonPrimary } from '../../styles/button';
-import { Header, Logo } from '../../styles/header';
+import { ButtonPrimary } from '~/styles/button';
+import { Header, Logo } from '~/styles/header';
 
 /**
  * 全ページ共通のHeaderを表示するコンポーネント.

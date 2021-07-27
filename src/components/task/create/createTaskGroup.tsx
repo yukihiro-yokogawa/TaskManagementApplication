@@ -1,16 +1,15 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { HIDDEN_ACTION } from '../../context/workspace/createWorkspaceModal';
 import {
   CANCEL_CREATE_TASK_GROUP,
   WorkspaceDispatchContext,
-} from '../../context/workspace/workspace';
-import { ButtonPrimary, CloseButton } from '../../styles/button';
+} from '~/context/workspace/workspace';
+import { ButtonPrimary, CloseButton } from '~/styles/button';
 import {
   CreateTaskGroup,
   CreateTaskGroupTextArea,
   TaskGroupFooter,
-} from '../../styles/taskCard';
+} from '~/styles/taskCard';
 
 /**
  * タスクグループを登録するためのフォームをタスクグループ内に表示するためのコンポーネント.

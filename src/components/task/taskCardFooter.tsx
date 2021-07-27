@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import {
   WorkspaceDispatchContext,
   CREATE_TASK,
-} from '../../context/workspace/workspace';
-import { TaskCardFooter, TaskCardFooterText } from '../../styles/taskCard';
+} from '~/context/workspace/workspace';
+import { TaskCardFooter, TaskCardFooterText } from '~/styles/taskCard';
 
 /**
  * タスクを追加するボタンをタスクグループのFooterに追加するためのコンポーネント.

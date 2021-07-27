@@ -5,8 +5,8 @@ import {
   Input,
   TextBoxInputLabel,
   TextBoxLabelError,
-} from '../../styles/form';
-import { TextBoxState } from '../../types/form';
+} from '~/styles/form';
+import { TextBoxState } from '~/types/form';
 
 /**
  * テキストボックスを表示するコンポーネント

@@ -1,16 +1,16 @@
 import React, { useContext } from 'react';
-import { CaptionH1 } from '../../styles/caption';
+import { CaptionH1 } from '~/styles/caption';
 import {
   PlusWorkspaceCard,
   PlusWorkspaceCardTextbox,
   WorkspaceCardGroup,
-} from '../../styles/workspaceCard';
+} from '~/styles/workspaceCard';
 import WorkspaceCardComponent from './workspaceCard';
-import { WorkspaceCardGroupState } from '../../types/card';
+import { WorkspaceCardGroupState } from '~/types/card';
 import {
   ModalDispatchContext,
   SHOW_ACTION,
-} from '../../context/workspace/createWorkspaceModal';
+} from '~/context/workspace/createWorkspaceModal';
 import ModalComponent from '../element/modal';
 
 /**

@@ -3,13 +3,13 @@ import { useForm } from 'react-hook-form';
 import {
   EDIT_TASK_GROUP,
   WorkspaceDispatchContext,
-} from '../../context/workspace/workspace';
-import { ButtonPrimary, CloseButton } from '../../styles/button';
+} from '~/context/workspace/workspace';
+import { ButtonPrimary, CloseButton } from '~/styles/button';
 import {
   EditTaskGroup,
   EditTaskGroupTextArea,
   TaskGroupFooter,
-} from '../../styles/taskCard';
+} from '~/styles/taskCard';
 
 /**
  * タスクグループを編集するためのフォームをタスクグループ内に表示するためのコンポーネント

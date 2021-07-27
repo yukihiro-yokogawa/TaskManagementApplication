@@ -1,6 +1,6 @@
 import React, { Dispatch } from 'react';
 import { createContext } from 'react';
-import { ShowModalState } from '../../types/modal';
+import { ShowModalState } from '~/types/modal';
 
 /**
  * modalで使用するstore state関数.

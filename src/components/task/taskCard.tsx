@@ -4,13 +4,13 @@ import {
   TaskCard,
   TaskCardEditImage,
   TaskCardTitleText,
-} from '../../styles/taskCard';
-import { TaskState } from '../../types/task';
+} from '~/styles/taskCard';
+import { TaskState } from '~/types/task';
 import editPic from '/public/edit.png';
 import {
   CHANGE_TASK,
   WorkspaceDispatchContext,
-} from '../../context/workspace/workspace';
+} from '~/context/workspace/workspace';
 
 /**
  * タスクカードをタスクグループ内に表示するためのコンポーネント.

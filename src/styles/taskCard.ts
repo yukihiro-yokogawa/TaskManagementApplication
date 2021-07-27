@@ -190,9 +190,19 @@ export const EditTaskSideBarContent = styled.div`
   padding-left: 5px;
   margin-bottom: 5px;
   cursor: pointer;
+  font-size: ${FONT.MEDIUM}px;
   &:hover {
     margin-left: 5px;
   }
+`;
+
+export const EditTaskSideBarForm = styled.form`
+  position: absolute;
+  width: 250px;
+  background-color: #fff;
+  color: #000;
+  padding-left: 5px;
+  border-radius: 3px;
 `;
 
 export const TaskOverlay = styled.div`

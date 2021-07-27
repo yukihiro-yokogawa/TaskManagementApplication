@@ -3,9 +3,9 @@ import {
   WorkspaceClientState,
   workspaceInitialState,
   WorkspaceState,
-} from '../../types/workspace';
+} from '~/types/workspace';
 import _ from 'lodash';
-import { taskGroupInitialState } from '../../types/taskGroup';
+import { taskGroupInitialState } from '~/types/taskGroup';
 /**
  * Workspaceの一覧を保管するContext関数.
  * @type {*} */
@@ -126,12 +126,6 @@ export const WorkspaceReducer = (
       };
     }
     case CHANGE_TASK: {
-      _.forEach(
-        state.TaskGroups[Number(action.payload.taskGroupIndex)].Tasks,
-        (task) => {
-          task.EditTask = false;
-        }
-      );
       state.TaskGroups[Number(action.payload.taskGroupIndex)].Tasks[
         Number(action.payload.taskIndex)
       ].EditTask = true;

@@ -3,13 +3,13 @@ import { useForm } from 'react-hook-form';
 import {
   CANCEL_CREATE_TASK,
   WorkspaceDispatchContext,
-} from '../../context/workspace/workspace';
-import { ButtonPrimary, CloseButton } from '../../styles/button';
+} from '~/context/workspace/workspace';
+import { ButtonPrimary, CloseButton } from '~/styles/button';
 import {
   TaskGroupFooter,
   CreateTaskCard,
   CreateTaskTextArea,
-} from '../../styles/taskCard';
+} from '~/styles/taskCard';
 
 /**
  * タスクカードを登録するためのフォームをタスクグループ内に表示するためのコンポーネント.

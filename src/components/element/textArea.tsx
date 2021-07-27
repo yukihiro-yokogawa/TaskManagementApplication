@@ -5,8 +5,8 @@ import {
   TextArea,
   TextBoxAreaLabel,
   TextBoxLabelError,
-} from '../../styles/form';
-import { TextBoxState } from '../../types/form';
+} from '~/styles/form';
+import { TextBoxState } from '~/types/form';
 
 /**
  * テキストエリアを表示するコンポーネント.

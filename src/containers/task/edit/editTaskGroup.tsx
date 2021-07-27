@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
-import EditTaskGroupComponent from '../../components/task/editTaskGroup';
+import EditTaskGroupComponent from '~/components/task/edit/editTaskGroup';
 import {
   EDIT_TASK_GROUP,
   WorkspaceContext,
   WorkspaceDispatchContext,
-} from '../../context/workspace/workspace';
-import { TaskGroupState } from '../../types/taskGroup';
-import { apiVersion } from '../../utils/api';
-import axiosInstance from '../../utils/axiosInstance';
+} from '~/context/workspace/workspace';
+import { TaskGroupState } from '~/types/taskGroup';
+import { apiVersion } from '~/utils/api';
+import axiosInstance from '~/utils/axiosInstance';
 
 /**
  * タスクグループを更新するためのデータ取得、登録処理等のロジックを担うコンポーネント（Container Component）です.

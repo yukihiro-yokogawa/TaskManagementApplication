@@ -1,20 +1,20 @@
 import React, { useContext } from 'react';
-import CreateTask from '../../containers/task/createTask';
-import CreateTaskGroup from '../../containers/task/createTaskGroup';
-import EditTask from '../../containers/task/editTask';
-import EditTaskGroup from '../../containers/task/editTaskGroup';
+import CreateTask from '~/containers/task/create/createTask';
+import CreateTaskGroup from '~/containers/task/create/createTaskGroup';
+import EditTask from '~/containers/task/edit/editTask';
+import EditTaskGroup from '~/containers/task/edit/editTaskGroup';
 import {
   CHANGE_TASK_GROUP,
   WorkspaceContext,
   WorkspaceDispatchContext,
-} from '../../context/workspace/workspace';
+} from '~/context/workspace/workspace';
 import {
   TaskCardGroup,
   TaskCardGroupHeader,
   TaskGroups,
-} from '../../styles/taskCard';
-import { TaskClientState } from '../../types/task';
-import { TaskGroupClientState } from '../../types/taskGroup';
+} from '~/styles/taskCard';
+import { TaskClientState } from '~/types/task';
+import { TaskGroupClientState } from '~/types/taskGroup';
 import TaskCardComponent from './taskCard';
 import TaskCardFooterComponent from './taskCardFooter';
 import TaskCardGroupAddComponent from './taskCardGroupAdd';

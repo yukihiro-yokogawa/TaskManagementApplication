@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
-import CreateWorkspace from '../../containers/workspace/createWorkspace';
+import CreateWorkspace from '~/containers/workspace/createWorkspace';
 import {
   HIDDEN_ACTION,
   ModalContext,
   ModalDispatchContext,
-} from '../../context/workspace/createWorkspaceModal';
-import { CloseButton } from '../../styles/button';
-import { ModalContent, ModalHeader, ModalOverlay } from '../../styles/modal';
+} from '~/context/workspace/createWorkspaceModal';
+import { CloseButton } from '~/styles/button';
+import { ModalContent, ModalHeader, ModalOverlay } from '~/styles/modal';
 
 /**
  * モーダルを表示する共通のコンポーネント.

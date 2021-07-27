@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import CreateWorkspaceComponent from '../../components/workspace/createWorkspace';
-import { KeycloakContext } from '../../context/keycloak';
-import { WorkspaceState } from '../../types/workspace';
-import { apiVersion } from '../../utils/api';
-import axiosInstance from '../../utils/axiosInstance';
+import CreateWorkspaceComponent from '~/components/workspace/createWorkspace';
+import { KeycloakContext } from '~/context/keycloak';
+import { WorkspaceState } from '~/types/workspace';
+import { apiVersion } from '~/utils/api';
+import axiosInstance from '~/utils/axiosInstance';
 
 /**
  * Workspace作成Formにおけるロジックをまとめるコンテナコンポーネント.

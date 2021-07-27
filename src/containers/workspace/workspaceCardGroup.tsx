@@ -1,11 +1,11 @@
 import React, { useContext, useReducer } from 'react';
-import WorkspaceCardGroupComponent from '../../components/workspace/workspaceCardGroup';
+import WorkspaceCardGroupComponent from '~/components/workspace/workspaceCardGroup';
 import {
   ModalContext,
   ModalDispatchContext,
   modalReducer,
-} from '../../context/workspace/createWorkspaceModal';
-import { WorkspacesContext } from '../../context/workspace/workspace';
+} from '~/context/workspace/createWorkspaceModal';
+import { WorkspacesContext } from '~/context/workspace/workspace';
 
 /**
  * Workspaceをグループ化して表示する際に使用するロジックをまとめたコンテナコンポーネント.

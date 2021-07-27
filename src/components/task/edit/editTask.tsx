@@ -1,17 +1,17 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import EditTaskSideBar from '../../containers/task/editTaskSideBar';
+import EditTaskSideBar from '~/containers/task/edit/editTaskSideBar';
 import {
   EDIT_TASK,
   WorkspaceDispatchContext,
-} from '../../context/workspace/workspace';
-import { ButtonPrimary, CloseButton } from '../../styles/button';
+} from '~/context/workspace/workspace';
+import { ButtonPrimary, CloseButton } from '~/styles/button';
 import {
   TaskGroupFooter,
   CreateTaskCard,
   CreateTaskTextArea,
   TaskOverlay,
-} from '../../styles/taskCard';
+} from '~/styles/taskCard';
 
 /**
  * タスクカードを編集するためのフォームをタスクグループ内に表示するためのコンポーネント.

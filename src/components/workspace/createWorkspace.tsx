@@ -1,8 +1,8 @@
 import React from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
-import { ButtonPrimary } from '../../styles/button';
-import { Form } from '../../styles/form';
-import { CreateWorkspaceState } from '../../types/createWorkspace';
+import { ButtonPrimary } from '~/styles/button';
+import { Form } from '~/styles/form';
+import { CreateWorkspaceState } from '~/types/createWorkspace';
 import TextBoxComponent from '../element/textBox';
 import TextAreaComponent from '../element/textArea';
 

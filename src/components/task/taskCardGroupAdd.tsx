@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import {
   WorkspaceDispatchContext,
   CREATE_TASK_GROUP,
-} from '../../context/workspace/workspace';
-import { TaskCardGroupAdd, TaskCardTitleText } from '../../styles/taskCard';
+} from '~/context/workspace/workspace';
+import { TaskCardGroupAdd, TaskCardTitleText } from '~/styles/taskCard';
 
 /**
  * タスクグループを追加するボタンを表示するコンポーネント.

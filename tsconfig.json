@@ -3,11 +3,7 @@
     "target": "esnext",
     "module": "esnext",
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -16,11 +12,12 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "typeRoots": [
-      "src/@types",
-      "node_modules/@types"
-    ],
-    "strict": false
+    "typeRoots": ["src/@types", "node_modules/@types"],
+    "strict": false,
+    "baseUrl": "./",
+    "paths": {
+      "~/*": ["src/*"]
+    }
   },
   "include": [
     "src/**/*",
@@ -29,15 +26,7 @@
     "**/*.tsx",
     "server/server.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ],
-  "typeRoots": [
-    "node_modules/@types",
-    "./types"
-  ],
-  "rootDirs": [
-    "./src/pages",
-    "./src"
-  ]
+  "exclude": ["node_modules"],
+  "typeRoots": ["node_modules/@types", "./types"],
+  "rootDirs": ["./src/pages", "./src"]
 }

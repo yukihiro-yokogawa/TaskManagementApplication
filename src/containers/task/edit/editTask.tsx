@@ -1,14 +1,13 @@
 import { useContext } from 'react';
-import EditTaskComponent from '../../components/task/editTask';
-import { KeycloakContext } from '../../context/keycloak';
+import EditTaskComponent from '~/components/task/edit/editTask';
 import {
   WorkspaceDispatchContext,
   EDIT_TASK,
   WorkspaceContext,
-} from '../../context/workspace/workspace';
-import { TaskState } from '../../types/task';
-import { apiVersion } from '../../utils/api';
-import axiosInstance from '../../utils/axiosInstance';
+} from '~/context/workspace/workspace';
+import { TaskState } from '~/types/task';
+import { apiVersion } from '~/utils/api';
+import axiosInstance from '~/utils/axiosInstance';
 
 /**
  * タスクを更新するためのデータ取得、登録処理等のロジックを担うコンポーネント（Container Component）です.

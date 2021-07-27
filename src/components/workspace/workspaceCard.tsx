@@ -4,8 +4,8 @@ import {
   WorkspaceCard,
   WorkspaceCardTextbox,
   WorkspaceCardTitleText,
-} from '../../styles/workspaceCard';
-import { WorkspaceCardState } from '../../types/card';
+} from '~/styles/workspaceCard';
+import { WorkspaceCardState } from '~/types/card';
 
 /**
  * プロジェクト用のタスクカードを表示するコンポーネント.
