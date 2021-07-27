@@ -4,6 +4,7 @@ import { COLOR, FONT, FONT_WEIGHT } from './utils/cssConstrain';
 export const TaskGroups = styled.div`
   display: flex;
   justify-content: flex-start;
+  align-items: baseline;
 `;
 
 export const TaskCardGroup = styled.div`
