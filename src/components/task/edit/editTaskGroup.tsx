@@ -5,11 +5,8 @@ import {
   WorkspaceDispatchContext,
 } from '~/context/workspace/workspace';
 import { ButtonPrimary, CloseButton } from '~/styles/button';
-import {
-  EditTaskGroup,
-  EditTaskGroupTextArea,
-  TaskGroupFooter,
-} from '~/styles/taskCard';
+import { FlexBox } from '~/styles/main';
+import { EditTaskGroup, EditTaskGroupTextArea } from '~/styles/taskCard';
 
 /**
  * タスクグループを編集するためのフォームをタスクグループ内に表示するためのコンポーネント
@@ -33,7 +30,7 @@ const EditTaskGroupComponent = (props: {
   return (
     <EditTaskGroup onSubmit={handleSubmit(props.onSubmit)}>
       <EditTaskGroupTextArea {...register('Name')} />
-      <TaskGroupFooter>
+      <FlexBox justifyContent="space-between" alignItems="center">
         <ButtonPrimary>登録</ButtonPrimary>
         <CloseButton
           type="button"
@@ -45,7 +42,7 @@ const EditTaskGroupComponent = (props: {
           }>
           ×
         </CloseButton>
-      </TaskGroupFooter>
+      </FlexBox>
     </EditTaskGroup>
   );
 };

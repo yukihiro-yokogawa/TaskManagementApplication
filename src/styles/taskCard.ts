@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 import { COLOR, FONT, FONT_WEIGHT } from './utils/cssConstrain';
 
-export const TaskGroups = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: baseline;
-`;
-
 export const TaskCardGroup = styled.div`
   width: 200px;
   height: auto;
@@ -26,12 +20,6 @@ export const TaskCardGroup = styled.div`
     flex-wrap: wrap;
     border-radius: 2px;
   }
-`;
-
-export const TaskGroupFooter = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 `;
 
 export const TaskCardGroupAdd = styled.div`

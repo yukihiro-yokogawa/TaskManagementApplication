@@ -6,7 +6,7 @@ import Document, {
   DocumentContext,
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-import { AllBody } from '../styles/body';
+import { AllBody } from '../styles/main';
 
 type Props = {
   styleTags: any;

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { MainBody } from '../styles/body';
+import { MainBody } from '../styles/main';
 import WorkspaceCardGroup from '../containers/workspace/workspaceCardGroup';
 import useSWR from 'swr';
 import { apiVersion } from '../utils/api';

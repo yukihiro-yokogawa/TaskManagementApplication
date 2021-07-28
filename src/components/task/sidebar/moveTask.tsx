@@ -4,6 +4,7 @@ import {
   EditTaskDispatchContext,
   MOVE_TASK,
 } from '~/context/task/task';
+import { FlexBox } from '~/styles/main';
 import { EditTaskSideBarContent, EditTaskSideBarForm } from '~/styles/taskCard';
 
 const MoveTaskComponent = () => {
@@ -18,7 +19,16 @@ const MoveTaskComponent = () => {
         移動
       </EditTaskSideBarContent>
       {editTask.sideBar.move ? (
-        <EditTaskSideBarForm>test</EditTaskSideBarForm>
+        <EditTaskSideBarForm>
+          <FlexBox justifyContent="space-between" alignItems="stretch">
+            <header>タスクを移動</header>
+            <button>x</button>
+          </FlexBox>
+          <div>
+            <label>タスクグループ</label>
+            <label>位置</label>
+          </div>
+        </EditTaskSideBarForm>
       ) : (
         ''
       )}

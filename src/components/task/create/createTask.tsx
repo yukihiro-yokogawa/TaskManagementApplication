@@ -5,11 +5,8 @@ import {
   WorkspaceDispatchContext,
 } from '~/context/workspace/workspace';
 import { ButtonPrimary, CloseButton } from '~/styles/button';
-import {
-  TaskGroupFooter,
-  CreateTaskCard,
-  CreateTaskTextArea,
-} from '~/styles/taskCard';
+import { FlexBox } from '~/styles/main';
+import { CreateTaskCard, CreateTaskTextArea } from '~/styles/taskCard';
 
 /**
  * タスクカードを登録するためのフォームをタスクグループ内に表示するためのコンポーネント.
@@ -29,7 +26,7 @@ const CreateTaskComponent = (props: {
   return (
     <CreateTaskCard onSubmit={handleSubmit(props.onSubmit)} zIndex={'0'}>
       <CreateTaskTextArea {...register('Title')} />
-      <TaskGroupFooter>
+      <FlexBox justifyContent="space-between" alignItems="center">
         <ButtonPrimary>登録</ButtonPrimary>
         <CloseButton
           type="button"
@@ -43,7 +40,7 @@ const CreateTaskComponent = (props: {
           }>
           ×
         </CloseButton>
-      </TaskGroupFooter>
+      </FlexBox>
     </CreateTaskCard>
   );
 };

@@ -3,18 +3,14 @@ import CreateTask from '~/containers/task/create/createTask';
 import CreateTaskGroup from '~/containers/task/create/createTaskGroup';
 import EditTask from '~/containers/task/edit/editTask';
 import EditTaskGroup from '~/containers/task/edit/editTaskGroup';
-import { EditTaskContext, EditTaskDispatchContext } from '~/context/task/task';
 import {
   CHANGE_TASK_GROUP,
   WorkspaceContext,
   WorkspaceDispatchContext,
 } from '~/context/workspace/workspace';
-import {
-  TaskCardGroup,
-  TaskCardGroupHeader,
-  TaskGroups,
-} from '~/styles/taskCard';
-import { editTaskInitialState, TaskClientState } from '~/types/task';
+import { FlexBox } from '~/styles/main';
+import { TaskCardGroup, TaskCardGroupHeader } from '~/styles/taskCard';
+import { TaskClientState } from '~/types/task';
 import { TaskGroupClientState } from '~/types/taskGroup';
 import TaskCardComponent from './taskCard';
 import TaskCardFooterComponent from './taskCardFooter';
@@ -30,7 +26,7 @@ const TaskCardGroupComponent = () => {
   const workspaceDispatch = useContext(WorkspaceDispatchContext);
   return (
     <>
-      <TaskGroups>
+      <FlexBox justifyContent="flex-start" alignItems="baseline">
         {workspace?.TaskGroups.map(
           (
             taskGroup: TaskGroupClientState,
@@ -90,7 +86,7 @@ const TaskCardGroupComponent = () => {
         ) : (
           <TaskCardGroupAddComponent />
         )}
-      </TaskGroups>
+      </FlexBox>
     </>
   );
 };

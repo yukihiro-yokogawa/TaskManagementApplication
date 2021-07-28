@@ -7,8 +7,8 @@ import {
   WorkspaceDispatchContext,
 } from '~/context/workspace/workspace';
 import { ButtonPrimary, CloseButton } from '~/styles/button';
+import { FlexBox } from '~/styles/main';
 import {
-  TaskGroupFooter,
   CreateTaskCard,
   CreateTaskTextArea,
   TaskOverlay,
@@ -46,7 +46,7 @@ const EditTaskComponent = (props: { onSubmit: (data: any) => void }) => {
       <EditTaskSideBarComponent />
       <CreateTaskCard onSubmit={handleSubmit(onSubmit)} zIndex={'10'}>
         <CreateTaskTextArea {...register('Title')} />
-        <TaskGroupFooter>
+        <FlexBox justifyContent="space-between" alignItems="center">
           <ButtonPrimary>登録</ButtonPrimary>
           <CloseButton
             type="button"
@@ -61,7 +61,7 @@ const EditTaskComponent = (props: { onSubmit: (data: any) => void }) => {
             }>
             ×
           </CloseButton>
-        </TaskGroupFooter>
+        </FlexBox>
       </CreateTaskCard>
     </>
   );

@@ -73,10 +73,10 @@ export const WorkspaceCardTextbox = styled.div`
 
 export const PlusWorkspaceCardTextbox = styled.div`
   display: flex;
-  width: 100%;
-  height: 100%;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
   box-sizing: border-box;
 `;
 
