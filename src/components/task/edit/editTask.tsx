@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import EditTaskSideBar from '~/containers/task/edit/editTaskSideBar';
+import EditTaskSideBarComponent from '~/components/task/edit/editTaskSideBar';
+import { EditTaskContext } from '~/context/task/task';
 import {
   EDIT_TASK,
   WorkspaceDispatchContext,
@@ -22,15 +23,11 @@ import {
  * }} props
  * @return {*}
  */
-const EditTaskComponent = (props: {
-  title: string;
-  taskGroupIndex: React.Key | null | undefined;
-  taskIndex: React.Key | null | undefined;
-  onSubmit: (data: any) => void;
-}) => {
-  const { title, taskGroupIndex, taskIndex, onSubmit } = props;
+const EditTaskComponent = (props: { onSubmit: (data: any) => void }) => {
+  const editTask = useContext(EditTaskContext);
+  const { onSubmit } = props;
   const { register, handleSubmit } = useForm({
-    defaultValues: { Title: title },
+    defaultValues: { Title: editTask.task.Title },
   });
   const dispatch = useContext(WorkspaceDispatchContext);
   return (
@@ -40,13 +37,13 @@ const EditTaskComponent = (props: {
           dispatch({
             type: EDIT_TASK,
             payload: {
-              taskGroupIndex: taskGroupIndex,
-              taskIndex: taskIndex,
+              taskGroupIndex: editTask.taskGroupIndex,
+              taskIndex: editTask.taskIndex,
             },
           })
         }
       />
-      <EditTaskSideBar />
+      <EditTaskSideBarComponent />
       <CreateTaskCard onSubmit={handleSubmit(onSubmit)} zIndex={'10'}>
         <CreateTaskTextArea {...register('Title')} />
         <TaskGroupFooter>
@@ -57,8 +54,8 @@ const EditTaskComponent = (props: {
               dispatch({
                 type: EDIT_TASK,
                 payload: {
-                  taskGroupIndex: taskGroupIndex,
-                  taskIndex: taskIndex,
+                  taskGroupIndex: editTask.taskGroupIndex,
+                  taskIndex: editTask.taskIndex,
                 },
               })
             }>

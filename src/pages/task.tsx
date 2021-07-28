@@ -36,7 +36,12 @@ const Task = (props: { workspaceId: string }) => {
     if (workspace) {
       dispatch({
         type: LOAD_TASK,
-        payload: { taskGroupIndex: 0, taskIndex: 0, task: workspace },
+        payload: {
+          taskGroupIndex: 0,
+          taskIndex: 0,
+          task: workspace,
+          taskGroup: '',
+        },
       });
     }
   }, [workspace]);

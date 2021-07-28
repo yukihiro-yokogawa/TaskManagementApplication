@@ -3,6 +3,7 @@ import CreateTask from '~/containers/task/create/createTask';
 import CreateTaskGroup from '~/containers/task/create/createTaskGroup';
 import EditTask from '~/containers/task/edit/editTask';
 import EditTaskGroup from '~/containers/task/edit/editTaskGroup';
+import { EditTaskContext, EditTaskDispatchContext } from '~/context/task/task';
 import {
   CHANGE_TASK_GROUP,
   WorkspaceContext,
@@ -13,7 +14,7 @@ import {
   TaskCardGroupHeader,
   TaskGroups,
 } from '~/styles/taskCard';
-import { TaskClientState } from '~/types/task';
+import { editTaskInitialState, TaskClientState } from '~/types/task';
 import { TaskGroupClientState } from '~/types/taskGroup';
 import TaskCardComponent from './taskCard';
 import TaskCardFooterComponent from './taskCardFooter';
@@ -26,7 +27,7 @@ import TaskCardGroupAddComponent from './taskCardGroupAdd';
  */
 const TaskCardGroupComponent = () => {
   const workspace = useContext(WorkspaceContext);
-  const dispatch = useContext(WorkspaceDispatchContext);
+  const workspaceDispatch = useContext(WorkspaceDispatchContext);
   return (
     <>
       <TaskGroups>
@@ -39,7 +40,7 @@ const TaskCardGroupComponent = () => {
               {!taskGroup.EditTaskGroup ? (
                 <TaskCardGroupHeader
                   onClick={() =>
-                    dispatch({
+                    workspaceDispatch({
                       type: CHANGE_TASK_GROUP,
                       payload: { taskGroupIndex: taskGroupIndex },
                     })
@@ -64,6 +65,7 @@ const TaskCardGroupComponent = () => {
                           />
                         ) : (
                           <EditTask
+                            task={task}
                             taskGroupIndex={taskGroupIndex}
                             taskIndex={taskIndex}
                           />

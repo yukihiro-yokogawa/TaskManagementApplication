@@ -1,56 +1,61 @@
-import { useContext } from 'react';
+import { useContext, useReducer } from 'react';
 import EditTaskComponent from '~/components/task/edit/editTask';
+import {
+  EditTaskContext,
+  EditTaskDispatchContext,
+  EditTaskReducer,
+} from '~/context/task/task';
 import {
   WorkspaceDispatchContext,
   EDIT_TASK,
   WorkspaceContext,
 } from '~/context/workspace/workspace';
-import { TaskState } from '~/types/task';
+import task from '~/pages/task';
+import { editTaskInitialState, TaskClientState, TaskState } from '~/types/task';
 import { apiVersion } from '~/utils/api';
 import axiosInstance from '~/utils/axiosInstance';
 
 /**
  * タスクを更新するためのデータ取得、登録処理等のロジックを担うコンポーネント（Container Component）です.
  *
- * @param {({
- *   taskGroupIndex: React.Key | null | undefined; タスクグループの配列番号
- *   taskIndex: React.Key | null | undefined; タスクの配列番号
- * })} props
  * @return {*}
  */
 const EditTask = (props: {
-  taskGroupIndex: React.Key | null | undefined;
-  taskIndex: React.Key | null | undefined;
+  task: TaskClientState;
+  taskGroupIndex: React.Key;
+  taskIndex: React.Key;
 }) => {
-  const { taskGroupIndex, taskIndex } = props;
-  const workspace = useContext(WorkspaceContext);
-  const dispatch = useContext(WorkspaceDispatchContext);
-  const editTask =
-    workspace.TaskGroups[Number(taskGroupIndex)].Tasks[Number(taskIndex)];
+  const workspaceDispatch = useContext(WorkspaceDispatchContext);
+  const [editTask, editTaskDispatch] = useReducer(EditTaskReducer, {
+    ...editTaskInitialState,
+    task: props.task,
+    taskGroupIndex: Number(props.taskGroupIndex),
+    taskIndex: Number(props.taskIndex),
+  });
   const handleSubmit = (task: TaskState) => {
-    editTask.Title = task.Title;
+    editTask.task.Title = task.Title;
+    console.log(editTask.task);
     axiosInstance
       .put(`/${apiVersion}/api/task/put`, {
-        params: { data: editTask },
+        params: { data: editTask.task },
       })
       .then(() => {
-        dispatch({
+        workspaceDispatch({
           type: EDIT_TASK,
           payload: {
-            taskGroupIndex: taskGroupIndex,
-            taskIndex: taskIndex,
+            taskGroupIndex: editTask.taskGroupIndex,
+            taskIndex: editTask.taskIndex,
           },
         });
       });
   };
 
   return (
-    <EditTaskComponent
-      title={editTask.Title}
-      taskGroupIndex={taskGroupIndex}
-      taskIndex={taskIndex}
-      onSubmit={handleSubmit}
-    />
+    <EditTaskContext.Provider value={editTask}>
+      <EditTaskDispatchContext.Provider value={editTaskDispatch}>
+        <EditTaskComponent onSubmit={handleSubmit} />
+      </EditTaskDispatchContext.Provider>
+    </EditTaskContext.Provider>
   );
 };
 

@@ -181,6 +181,7 @@ export const EditTaskSideBar = styled.div`
   width: 150px;
   color: ${COLOR.WHITE};
   margin-left: 215px;
+  z-index: 10;
 `;
 
 export const EditTaskSideBarContent = styled.div`
@@ -214,6 +215,6 @@ export const TaskOverlay = styled.div`
   top: 0px;
   left: 0px;
   background-color: #000;
-  z-index: -1;
+  z-index: 1;
   opacity: 0.5;
 `;
