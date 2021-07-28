@@ -34,7 +34,7 @@ const EditTaskComponent = (props: {
   });
   const dispatch = useContext(WorkspaceDispatchContext);
   return (
-    <CreateTaskCard onSubmit={handleSubmit(onSubmit)} zIndex={'10'}>
+    <>
       <TaskOverlay
         onClick={() =>
           dispatch({
@@ -47,24 +47,26 @@ const EditTaskComponent = (props: {
         }
       />
       <EditTaskSideBar />
-      <CreateTaskTextArea {...register('Title')} />
-      <TaskGroupFooter>
-        <ButtonPrimary>登録</ButtonPrimary>
-        <CloseButton
-          type="button"
-          onClick={() =>
-            dispatch({
-              type: EDIT_TASK,
-              payload: {
-                taskGroupIndex: taskGroupIndex,
-                taskIndex: taskIndex,
-              },
-            })
-          }>
-          ×
-        </CloseButton>
-      </TaskGroupFooter>
-    </CreateTaskCard>
+      <CreateTaskCard onSubmit={handleSubmit(onSubmit)} zIndex={'10'}>
+        <CreateTaskTextArea {...register('Title')} />
+        <TaskGroupFooter>
+          <ButtonPrimary>登録</ButtonPrimary>
+          <CloseButton
+            type="button"
+            onClick={() =>
+              dispatch({
+                type: EDIT_TASK,
+                payload: {
+                  taskGroupIndex: taskGroupIndex,
+                  taskIndex: taskIndex,
+                },
+              })
+            }>
+            ×
+          </CloseButton>
+        </TaskGroupFooter>
+      </CreateTaskCard>
+    </>
   );
 };
 

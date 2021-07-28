@@ -1,3 +1,4 @@
+import { taskGroupInitialState } from './taskGroup';
 import { ChargeUserState } from './user';
 
 export type TaskState = {
@@ -33,4 +34,28 @@ export const taskInitialState: TaskState = {
     },
   ],
   TaskGroupId: '',
+};
+
+export type EditTask = {
+  task: TaskClientState;
+  taskGroupIndex: Number;
+  taskIndex: Number;
+  sideBar: {
+    move: boolean;
+    memberChange: boolean;
+    periodChange: boolean;
+    copy: boolean;
+  };
+};
+
+export const editTaskInitialState: EditTask = {
+  task: { ...taskInitialState, EditTask: false },
+  taskGroupIndex: 0,
+  taskIndex: 0,
+  sideBar: {
+    move: false,
+    memberChange: false,
+    periodChange: false,
+    copy: false,
+  },
 };

@@ -7,7 +7,7 @@ const MoveTaskComponent = (props: {
 }) => {
   return (
     <>
-      <EditTaskSideBarContent onClick={() => props.handleClick}>
+      <EditTaskSideBarContent onClick={props.handleClick}>
         移動
       </EditTaskSideBarContent>
       {props.view ? <EditTaskSideBarForm>test</EditTaskSideBarForm> : ''}

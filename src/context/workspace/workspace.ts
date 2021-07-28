@@ -5,7 +5,7 @@ import {
   WorkspaceState,
 } from '~/types/workspace';
 import _ from 'lodash';
-import { taskGroupInitialState } from '~/types/taskGroup';
+
 /**
  * Workspaceの一覧を保管するContext関数.
  * @type {*} */
@@ -34,6 +34,7 @@ export const WorkspacesReducer = (
 
 /**
  * Workspaceの情報を保管するContext関数.
+ *
  * @type {*} */
 export const WorkspaceContext = createContext<WorkspaceClientState>(
   workspaceInitialState
@@ -43,7 +44,7 @@ export const WorkspaceContext = createContext<WorkspaceClientState>(
  * WorkspaceContextを書き換えるためのReducer関数.
  *
  * @type {*}
- * */
+ */
 export const WorkspaceDispatchContext = createContext<
   Dispatch<{
     type: string;

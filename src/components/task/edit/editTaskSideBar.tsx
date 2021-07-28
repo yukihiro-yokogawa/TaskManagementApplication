@@ -1,10 +1,6 @@
 import React from 'react';
 import MoveTask from '~/containers/task/sidebar/moveTask';
-import {
-  EditTaskSideBar,
-  EditTaskSideBarContent,
-  EditTaskSideBarForm,
-} from '~/styles/taskCard';
+import { EditTaskSideBar, EditTaskSideBarContent } from '~/styles/taskCard';
 
 const EditTaskSideBarComponent = () => {
   return (

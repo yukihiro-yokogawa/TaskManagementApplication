@@ -203,6 +203,8 @@ export const EditTaskSideBarForm = styled.form`
   color: #000;
   padding-left: 5px;
   border-radius: 3px;
+  margin-top: 5px;
+  margin-left: 10px;
 `;
 
 export const TaskOverlay = styled.div`
